@@ -1,0 +1,64 @@
+/* About Section Container */
+.about-container {
+    text-align: center;
+    color: white;
+    padding: 60px 20px;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    border-radius: 12px;
+    width: 60%;
+    margin: 20px auto 50px; /* Increased top margin for better spacing */
+    max-width: 800px; /* Ensure it doesn't become too wide */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px); /* Subtle background blur for a modern effect */
+}
+
+/* Fix heading alignment */
+.about-container h1 {
+    font-size: 38px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Improve paragraph readability */
+.about-container p {
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: justify; /* Makes long text more readable */
+    margin-bottom: 15px;
+}
+
+/* Center the list properly */
+.about-container ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    display: inline-block; /* Centers the list */
+}
+
+.about-container ul li {
+    font-size: 18px;
+    margin: 10px 0;
+    position: relative;
+    padding-left: 25px;
+}
+
+.about-container ul li::before {
+    content: '\2022'; /* Bullet point */
+    color: #46dbb6;
+    font-size: 22px;
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+/* Ensure navbar does not overlap */
+.navbar {
+    position: relative;
+    z-index: 10;
+}
+
+/* Ensure About page content is below the navbar */
+.about-page {
+    padding-top: 90px; /* Adjust this based on your navbar height */
+}

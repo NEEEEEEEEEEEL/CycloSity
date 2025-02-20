@@ -1,0 +1,71 @@
+/* Ensure the page container has enough width */
+.predictions-page {
+    max-width: 1200px; 
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+    color: #46dbb6;
+  }
+  
+  .predictions-grid {
+    display: flex !important;  
+    flex-wrap: wrap !important; 
+    gap: 20px !important; 
+    justify-content: center !important; 
+    align-items: stretch !important; 
+  }
+
+  .prediction-card {
+    flex: 1 1 calc(33.333% - 20px) !important; 
+    max-width: 350px !important; 
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    color: black;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .prediction-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .prediction-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .prediction-header h3 {
+    font-size: 20px;
+    margin: 0 !important;
+  }
+  
+  .severity-badge {
+    padding: 5px 12px;
+    font-size: 14px !important;
+    border-radius: 12px !important;
+    text-transform: capitalize !important;
+    color: black !important;
+  }
+  
+  .severity-badge.low { background: #2ecc71 !important; } 
+  .severity-badge.moderate { background: #f1c40f !important; } 
+  .severity-badge.high { background: #e67e22 !important; } 
+  .severity-badge.severe { background: #e74c3c !important; } 
+  
+  .prediction-details p {
+    margin: 5px 0 !important;
+  }
+  
+
+  .prediction-precautions {
+    background: rgba(255, 255, 255, 0.2) !important;
+    padding: 10px !important;
+    border-radius: 10px !important;
+  }
+  

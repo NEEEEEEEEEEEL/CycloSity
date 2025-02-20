@@ -1,0 +1,28 @@
+# Virtual environments
+venv/
+.env
+*.pyc
+__pycache__/
+
+# Logs & caches
+logs/
+*.log
+*.sqlite3
+*.db
+
+# VS Code settings
+.vscode/
+
+# Dependency files
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Docker & cloud deployment files (if using Docker)
+docker-compose.override.yml
+
+# Ignore model files & datasets (optional)
+models/
+data/
+*.h5
+*.npy
+*.csv
