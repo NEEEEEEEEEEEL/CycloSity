@@ -220,6 +220,7 @@ import "react-circular-progressbar/dist/styles.css";
 import "../style.css";
 import PublishForm from './PublishForm';
 import Navbar from "./Navbar";
+import uploadBg from "../assets/megh.jpg"
 
 const UploadImages = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -276,6 +277,10 @@ const UploadImages = () => {
   return (
     <>
     <Navbar />
+    <div 
+      className="bg-img" 
+      style={{ backgroundImage: `url(${uploadBg})`, backgroundSize: "cover" }}
+    >
     <div className="upload-container">
       <h2>Upload 6 Satellite Images</h2>
       <input type="file" multiple accept="image/*" onChange={handleFileChange} disabled={loading} />
@@ -348,6 +353,7 @@ const UploadImages = () => {
         </div>
       )}
     </div>
+    </div> 
     </>
   );
 };

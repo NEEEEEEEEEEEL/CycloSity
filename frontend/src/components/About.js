@@ -1,29 +1,40 @@
 import React from "react";
-import "./About.css"; // Ensure this file is correctly imported
+import "./About.css"; 
+import backgroundImage from "../assets/orange.jpg"; 
+import Navbar from "./Navbar";
 
 function About() {
   return (
-    <div className="about-page">
+    <>
+    <Navbar />
+    <div className="about-page" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      {/* Dark overlay for better text visibility */}
+      <div className="overlay"></div>
+
       <div className="about-container">
-        <h1>About Extreme TC Prediction 🌀</h1>
+        <h1>🌪️ CycloSity – AI That Reads the Storm ⚡</h1>
         <p>
-          This web application predicts extreme tropical cyclone intensity and track 
-          using deep learning models trained on satellite imagery and weather data. 
-          It helps in early detection and analysis of cyclones to mitigate risks. 🐱
+          When the ocean rages, **CycloSity** steps up.  
+          **AI-powered, precision-driven, and built for one mission:**  
+          **Predict tropical cyclone intensity before it’s too late.** ⏳  
         </p>
-        
-        <h2>Key Features: 🐾</h2>
+
+        <h2>⚙️ What Makes CycloSity a Game-Changer?</h2>
         <ul>
-          <li>🌍 Real-time satellite image processing</li>
-          <li>🌪 Predicts Maximum Sustained Wind (MSW) & Estimated Central Pressure (ECP)</li>
-          <li>🧠 Powered by LSTM, Transformer & CNN models</li>
-          <li>📊 Visual explanations using Grad-CAM for interpretability</li>
-          <li>⚡ Fast and efficient cyclone intensity estimation</li>
+          <li>🌊 **Real-Time Intensity Forecasts** – AI estimates **Max Sustained Wind (MSW) & Central Pressure (ECP)** with razor-sharp accuracy.</li>
+          <li>🧠 **Deep Learning Powerhouse** – **LSTMs, Transformers, CNNs** trained on **thousands of satellite images**.</li>
+          <li>🔬 **XAI Transparency** – No black-box magic! **Grad-CAM highlights** what the AI sees.</li>
+          <li>⚡ **Speed & Reliability** – Because **every second counts** when extreme weather hits.</li>
         </ul>
 
-        <p className="developers">Developed with ❤️ by Debnil Sarkar, Aniqa Rahman & Arpan Saha</p>
+        <h2>🚀 Built with Passion, Powered by Innovation 🌍</h2>
+        <p className="developers">
+          **Developed with ❤️ by** <strong>Debnil Sarkar, Aniqa Rahman, Arpan Saha, and Soumyajit Pal</strong>.  
+          Because **intensity matters** – and so does **getting it right**.  
+        </p>
       </div>
     </div>
+    </>
   );
 }
 

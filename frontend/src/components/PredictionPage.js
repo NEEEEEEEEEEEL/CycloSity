@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./PredictionPage.css"
+import stormGif from "../assets/storm.gif";
 
 const PredictionsPage = () => {
   const [predictions, setPredictions] = useState([]);
@@ -20,6 +21,11 @@ const PredictionsPage = () => {
   }, []);
 
   return (
+    <div 
+      className="predictions-container" 
+      style={{ backgroundImage: `url(${stormGif})`, backgroundSize: "cover" }}
+    >
+  
     <div className="predictions-page">
       <h2>Cyclone Reports</h2>
       <div className="predictions-grid">
@@ -43,6 +49,7 @@ const PredictionsPage = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

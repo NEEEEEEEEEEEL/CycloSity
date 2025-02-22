@@ -1,71 +1,122 @@
-/* Ensure the page container has enough width */
-.predictions-page {
-    max-width: 1200px; 
-    margin: 40px auto;
-    padding: 20px;
-    text-align: center;
-    color: #46dbb6;
-  }
-  
+/* Prediction Page Background */
+.predictions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* Ensure full height and allow scrolling */
+  width: 100%;
+  text-align: center;
+  color: white;
+  position: relative;
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px 0;
+}
+
+/* Dark Overlay for Better Readability */
+.predictions-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1;
+}
+
+/* Title */
+.predictions-page h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+/* Predictions Grid */
+.predictions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Prediction Card */
+.prediction-card {
+  background: rgba(255, 255, 255, 0.1); /* Slight transparency */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  width: 100%;
+  max-width: 250px;
+  backdrop-filter: blur(8px);
+}
+
+/* Header */
+.prediction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* Severity Badge */
+.severity-badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Severity Levels */
+.severity-badge.low {
+  background-color: green;
+  color: white;
+}
+
+.severity-badge.medium {
+  background-color: orange;
+  color: white;
+}
+
+.severity-badge.high {
+  background-color: red;
+  color: white;
+}
+
+/* Prediction Details */
+.prediction-details p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+/* Precautions */
+.prediction-precautions {
+  margin-top: 10px;
+}
+
+.prediction-precautions h4 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #FFD700; /* Gold for emphasis */
+}
+
+.prediction-precautions p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .predictions-grid {
-    display: flex !important;  
-    flex-wrap: wrap !important; 
-    gap: 20px !important; 
-    justify-content: center !important; 
-    align-items: stretch !important; 
+      flex-direction: column;
+      align-items: center;
   }
-
-  .prediction-card {
-    flex: 1 1 calc(33.333% - 20px) !important; 
-    max-width: 350px !important; 
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    color: black;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .prediction-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  }
-  
-  .prediction-header {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    margin-bottom: 15px !important;
-  }
-  
-  .prediction-header h3 {
-    font-size: 20px;
-    margin: 0 !important;
-  }
-  
-  .severity-badge {
-    padding: 5px 12px;
-    font-size: 14px !important;
-    border-radius: 12px !important;
-    text-transform: capitalize !important;
-    color: black !important;
-  }
-  
-  .severity-badge.low { background: #2ecc71 !important; } 
-  .severity-badge.moderate { background: #f1c40f !important; } 
-  .severity-badge.high { background: #e67e22 !important; } 
-  .severity-badge.severe { background: #e74c3c !important; } 
-  
-  .prediction-details p {
-    margin: 5px 0 !important;
-  }
-  
-
-  .prediction-precautions {
-    background: rgba(255, 255, 255, 0.2) !important;
-    padding: 10px !important;
-    border-radius: 10px !important;
-  }
-  
+}
