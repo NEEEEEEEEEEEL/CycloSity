@@ -1,71 +1,134 @@
-/* Ensure the page container has enough width */
-.predictions-page {
-    max-width: 1200px; 
-    margin: 40px auto;
-    padding: 20px;
-    text-align: center;
-    color: #46dbb6;
-  }
-  
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* Retro Pixel Font */
+
+/* Prediction Page Background */
+.predictions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  text-align: center;
+  color: white;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px 0;
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* Dark Overlay for Readability */
+.predictions-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+/* Title - Pixelated Glow */
+.predictions-page h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: cyan;
+  text-shadow: 3px 3px 0px blue, -3px -3px 0px magenta;
+  position: relative;
+  z-index: 2;
+}
+
+/* Predictions Grid */
+.predictions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Prediction Card - Pixel Borders */
+.prediction-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 0px; /* No rounded edges for pixel effect */
+  border: 4px solid cyan;
+  box-shadow: 5px 5px 0px magenta, -5px -5px 0px blue;
+  text-align: left;
+  width: 100%;
+  max-width: 280px;
+  backdrop-filter: blur(5px);
+}
+
+/* Header - Pixel Grid */
+.prediction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px dashed cyan;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* Severity Badge - Blocky Look */
+.severity-badge {
+  padding: 8px 12px;
+  border-radius: 0px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  border: 2px solid white;
+  text-transform: uppercase;
+}
+
+/* Severity Levels */
+.severity-badge.low {
+  background-color: green;
+  color: white;
+  box-shadow: 2px 2px 0px white;
+}
+
+.severity-badge.medium {
+  background-color: orange;
+  color: white;
+  box-shadow: 2px 2px 0px white;
+}
+
+.severity-badge.high {
+  background-color: red;
+  color: white;
+  box-shadow: 2px 2px 0px white;
+}
+
+/* Prediction Details */
+.prediction-details p {
+  margin: 5px 0;
+  font-size: 0.8rem;
+}
+
+/* Precautions */
+.prediction-precautions {
+  margin-top: 10px;
+}
+
+.prediction-precautions h4 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #FFD700; /* Gold */
+  text-shadow: 2px 2px 0px black;
+}
+
+.prediction-precautions p {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .predictions-grid {
-    display: flex !important;  
-    flex-wrap: wrap !important; 
-    gap: 20px !important; 
-    justify-content: center !important; 
-    align-items: stretch !important; 
+      flex-direction: column;
+      align-items: center;
   }
-
-  .prediction-card {
-    flex: 1 1 calc(33.333% - 20px) !important; 
-    max-width: 350px !important; 
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    color: black;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .prediction-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  }
-  
-  .prediction-header {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    margin-bottom: 15px !important;
-  }
-  
-  .prediction-header h3 {
-    font-size: 20px;
-    margin: 0 !important;
-  }
-  
-  .severity-badge {
-    padding: 5px 12px;
-    font-size: 14px !important;
-    border-radius: 12px !important;
-    text-transform: capitalize !important;
-    color: black !important;
-  }
-  
-  .severity-badge.low { background: #2ecc71 !important; } 
-  .severity-badge.moderate { background: #f1c40f !important; } 
-  .severity-badge.high { background: #e67e22 !important; } 
-  .severity-badge.severe { background: #e74c3c !important; } 
-  
-  .prediction-details p {
-    margin: 5px 0 !important;
-  }
-  
-
-  .prediction-precautions {
-    background: rgba(255, 255, 255, 0.2) !important;
-    padding: 10px !important;
-    border-radius: 10px !important;
-  }
-  
+}

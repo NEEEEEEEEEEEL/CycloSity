@@ -1,9 +1,65 @@
 /* Add these styles to your style.css file */
+/* Full-page background image */
+.bg-img {
+  width: 100vw;
+  min-height: 100vh; /* Changed to min-height to expand as needed */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Changed from center to flex-start */
+  background-size: cover; /* Ensures full coverage */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Prevents scrolling issues */
+  padding: 80px 0 40px; /* Add top padding to avoid navbar overlap and bottom padding */
+}
 
+/* Centered Upload Container */
 .upload-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 90%;
+  max-width: 1200px; /* Maintain max-width of 1200px */
   padding: 20px;
+  /* background: rgba(255, 255, 255, 0.15); Light transparency */
+  background: none;
+  border-radius: 15px;
+  /* backdrop-filter: blur(8px); Smooth blur effect */
+  backdrop-filter: none;
+  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); */
+  text-align: center; /* Ensures all content inside is centered */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0; /* Add some margin */
+}
+
+/* Upload Box Styling */
+.upload-box {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Center buttons and inputs */
+.upload-container button,
+.upload-container input[type="file"] {
+  margin: 10px auto;
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .upload-container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-container {
+    width: 100%;
+    padding: 15px;
+  }
 }
 
 .image-preview-container {
@@ -55,10 +111,13 @@
 
 /* Prediction Results */
 .prediction-result {
+  width: 100%;
+  max-width: 800px; /* Limit width */
   margin: 20px 0;
   padding: 15px;
-  background: rgba(255, 255, 255, 0.1); /* Very subtle white background */
-  backdrop-filter: blur(4px); /* Slight blur effect */
+  /* background: rgba(255, 255, 255, 0.1); Very subtle white background */
+  /* backdrop-filter: blur(4px); Slight blur effect */
+  backdrop-filter: none;
   border-radius: 15px;
   transition: all 0.3s ease;
 }
@@ -105,54 +164,32 @@
 }
 
 /* Grad-CAM styling */
-.gradcam-container {
-  margin-top: 30px;
-  text-align: center;
-}
 
-.gradcam-images {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.gradcam-image {
-  text-align: center;
-}
-
-.gradcam-image img {
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-
-.gradcam-container {
-  text-align: center;
-  color: #DE3163;
-  margin: 20px 0;
-  font-size: large;
-  padding: 15px;
-  background: rgba(16, 243, 205, 0.1); /* Very subtle white background */
-  backdrop-filter: blur(4px); /* Slight blur effect */
-  border-radius: 15px;
-  transition: all 0.3s ease;
-}
 
 .gradcam-images {
   display: flex;
   flex-wrap: wrap;
   justify-content: center; /* Centers images */
-  gap: 20px;
+  gap: 30px; /* Increased gap for better spacing */
   margin-top: 20px;
+  padding: 10px;
+}
+
+.gradcam-image {
+  margin: 10px; /* Added margin around each image container */
+}
+
+.gradcam-image h4 {
+  margin-bottom: 10px;
+  font-size: 18px; /* Increased title font size */
 }
 
 .gradcam-image img {
-  width: 250px; /* Set fixed width */
-  height: 250px; /* Set fixed height */
-  object-fit: cover; /* Ensures images are uniform */
+  width: 100%;
+  max-width: 300px; /* Increased from 280px to 320px */
+  height: auto;
+  min-height: 250px; /* Added min-height to match width */
+  object-fit: contain;
   border-radius: 10px;
   border: 4px solid rgba(0, 0, 0, 0.3); /* Bold border */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -202,7 +239,7 @@ h2, h3, h4 {
 .visualization-images {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 5px;
   flex-wrap: wrap;
 }
 
@@ -220,7 +257,9 @@ h2, h3, h4 {
 /* neww publish page css */
 /* Create a new file 'PublishForm.css' */
 .publish-form-container {
-  margin-top: 20px;
+  width: 100%;
+  max-width: 600px; /* Limit width */
+  margin: 20px 0;
   padding: 20px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
@@ -285,8 +324,8 @@ h2, h3, h4 {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   padding: 20px;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* backdrop-filter: blur(4px); */
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
 }
 
 .prediction-header {

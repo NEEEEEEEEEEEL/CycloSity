@@ -51,3 +51,31 @@ def get_predictions():
         'location': p.location,
         'severity': p.severity
     } for p in predictions])
+
+#database routes
+@publish_bp.route("/database", methods=["GET"])
+def get_all_predictions():
+    """Fetch all predictions from the database"""
+    predictions = CyclonePrediction.query.order_by(CyclonePrediction.timestamp.desc()).all()
+    return jsonify([
+        {
+            "id": p.id,
+            "timestamp": p.timestamp.isoformat(),
+            "ecp": p.ecp,
+            "msw": p.msw,
+            "precautions": p.precautions,
+            "location": p.location,
+            "severity": p.severity
+        } for p in predictions
+    ])
+
+@publish_bp.route("/database/<int:id>", methods=["DELETE"])
+def delete_prediction(id):
+    """Delete a specific prediction by ID"""
+    prediction = CyclonePrediction.query.get(id)
+    if not prediction:
+        return jsonify({"error": "Prediction not found"}), 404
+
+    db.session.delete(prediction)
+    db.session.commit()
+    return jsonify({"message": "Prediction deleted successfully"})

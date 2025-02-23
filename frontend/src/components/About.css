@@ -1,64 +1,104 @@
-/* About Section Container */
-.about-container {
-    text-align: center;
-    color: white;
-    padding: 60px 20px;
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
-    border-radius: 12px;
-    width: 60%;
-    margin: 20px auto 50px; /* Increased top margin for better spacing */
-    max-width: 800px; /* Ensure it doesn't become too wide */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px); /* Subtle background blur for a modern effect */
-}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-/* Fix heading alignment */
-.about-container h1 {
-    font-size: 38px;
-    margin-bottom: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* Improve paragraph readability */
-.about-container p {
-    font-size: 18px;
-    line-height: 1.8;
-    text-align: justify; /* Makes long text more readable */
-    margin-bottom: 15px;
-}
-
-/* Center the list properly */
-.about-container ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: left;
-    display: inline-block; /* Centers the list */
-}
-
-.about-container ul li {
-    font-size: 18px;
-    margin: 10px 0;
-    position: relative;
-    padding-left: 25px;
-}
-
-.about-container ul li::before {
-    content: '\2022'; /* Bullet point */
-    color: #46dbb6;
-    font-size: 22px;
-    position: absolute;
-    left: 0;
-    top: 2px;
-}
-
-/* Ensure navbar does not overlap */
-.navbar {
-    position: relative;
-    z-index: 10;
-}
-
-/* Ensure About page content is below the navbar */
 .about-page {
-    padding-top: 90px; /* Adjust this based on your navbar height */
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    color: white;
+    padding: 80px 20px 20px;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Dark Overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(0, 0, 0, 0.7); */
+    z-index: 0;
+}
+
+/* Futuristic Glow Text */
+.glow-text {
+    font-size: 2rem;
+    color: cyan;
+    text-shadow: 0 0 5px cyan, 0 0 10px blue, 0 0 15px magenta;
+}
+
+/* Developer Section */
+.developer-section {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Developer Container - Zig-Zag Layout */
+.developer-container {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    max-width: 800px;
+    justify-content: center;
+    text-align: left;
+}
+
+/* Alternating Layout */
+.developer-container.left {
+    flex-direction: row;
+}
+
+.developer-container.right {
+    flex-direction: row-reverse;
+}
+
+/* Developer Card */
+.developer-card {
+    background: rgba(15, 15, 15, 0.9);
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px solid cyan;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Developer Images */
+.developer-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Subtle Hover Glow */
+.developer-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+/* Developer Info */
+.developer-info {
+    padding: 20px;
+    max-width: 400px;
+    text-align: left;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .developer-container {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    .developer-info {
+        text-align: center;
+    }
 }

@@ -4,4 +4,3 @@ tensorflow
 numpy
 Pillow
 werkzeug
-"gunicorn" 

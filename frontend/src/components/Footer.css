@@ -1,0 +1,47 @@
+/* Footer Styling */
+.footer {
+    background: repeating-linear-gradient(
+        45deg,
+        #1a1a2e,
+        #1a1a2e 10px,
+        #16213e 10px,
+        #16213e 20px
+    ); /* Pixelated gradient */
+    color: white;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 1rem;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.3);
+    font-family: 'Press Start 2P', cursive; /* Pixel Art Font */
+}
+
+/* Footer Content */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Pixelated Text Effect */
+.footer-content p {
+    display: inline-block;
+    position: relative;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffdb58; /* Bright yellow */
+    text-shadow: 
+        2px 2px 0px #d17b26, 
+        4px 4px 0px #8b4513; /* Layered shadows for pixel effect */
+    letter-spacing: 1.5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer {
+        font-size: 0.8rem;
+        padding: 10px 0;
+        height: auto;
+    }
+}

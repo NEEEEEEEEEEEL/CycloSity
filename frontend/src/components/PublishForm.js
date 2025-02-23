@@ -19,6 +19,13 @@ const PublishForm = ({ prediction }) => {
         msw: prediction.MSW,
         ...formData
       });
+
+    // try {
+    //   await axios.post('https://c2fd-2405-201-800a-408e-a848-d3c0-2239-8e8.ngrok-free.app/publish', {
+    //     ecp: prediction.ECP,
+    //     msw: prediction.MSW,
+    //     ...formData
+    //   });
       setMessage('Prediction published successfully!');
       // Clear form
       setFormData({
