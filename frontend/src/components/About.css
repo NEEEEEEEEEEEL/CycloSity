@@ -1,32 +1,201 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap'); /* Futuristic Font */
 
+/* About Page */
 .about-page {
     position: relative;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     min-height: 100vh;
-    color: white;
     padding: 80px 20px 20px;
     text-align: center;
     font-family: 'Orbitron', sans-serif;
+    color: #aaaaaa; /* Storm gray */
 }
 
-/* Dark Overlay */
+/* Rain animation for the whole page */
+.about-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, 
+        transparent 0%,
+        rgba(150, 150, 150, 0.03) 20%, 
+        transparent 20.5%,
+        transparent 60%,
+        rgba(150, 150, 150, 0.03) 60.5%,
+        transparent 61%);
+    background-size: 100% 20px;
+    animation: pageRain 0.8s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes pageRain {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 20px; }
+}
+
+/* Full-Page Overlay for Darkening Background */
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* background: rgba(0, 0, 0, 0.7); */
+    background: rgba(0, 0, 0, 0.8); /* Darker Overlay */
     z-index: 0;
 }
 
-/* Futuristic Glow Text */
+/* Lightning flash overlay */
+.overlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(150, 150, 150, 0);
+    animation: pageLightning 10s infinite;
+}
+
+@keyframes pageLightning {
+    0%, 95%, 97%, 99% {
+        background: rgba(150, 150, 150, 0);
+    }
+    96%, 98% {
+        background: rgba(150, 150, 150, 0.1);
+    }
+}
+
+/* About Content */
+.about-container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Heading - Storm Glow Effect */
 .glow-text {
     font-size: 2rem;
-    color: cyan;
-    text-shadow: 0 0 5px cyan, 0 0 10px blue, 0 0 15px magenta;
+    color: #cccccc;
+    text-shadow: 0 0 12px #aaaaaa, 0 0 22px #888888, 0 0 35px #666666;
+    position: relative;
+    animation: headingFlicker 5s infinite;
+}
+
+@keyframes headingFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 0 0 12px #aaaaaa, 0 0 22px #888888, 0 0 35px #666666;
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+/* Text Overlay for Paragraphs & Lists */
+.text-overlay {
+    background: rgba(10, 10, 10, 0.85); /* Semi-Transparent Dark Box */
+    padding: 20px;
+    border-radius: 12px;
+    display: inline-block;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(100, 100, 100, 0.5);
+}
+
+/* Paragraph Styling */
+.about-container p {
+    font-size: 1rem;
+    color: #dddddd;
+    text-shadow: 0 0 6px rgba(150, 150, 150, 0.9);
+    background: rgba(20, 20, 20, 0.95); /* Darker Overlay */
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(100, 100, 100, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Water droplet effect on paragraphs */
+.about-container p::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, rgba(150,150,150,0.1) 0%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+    animation: waterDrops 8s infinite;
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes waterDrops {
+    0%, 100% { 
+        top: 10%; 
+        left: 20%;
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    10% { 
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    20% { 
+        top: 70%; 
+        left: 30%;
+        opacity: 0;
+    }
+    50% { 
+        top: 30%; 
+        left: 80%;
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    60% { 
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    70% { 
+        top: 60%; 
+        left: 70%;
+        opacity: 0;
+    }
+}
+
+/* List Styling */
+.about-container ul {
+    list-style: none;
+    padding: 15px;
+    background: rgba(20, 20, 20, 0.95); /* Darker Overlay */
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(100, 100, 100, 0.5);
+}
+
+.about-container ul li {
+    font-size: 1rem;
+    color: #dddddd;
+    text-shadow: 0 0 6px rgba(150, 150, 150, 0.9);
+    padding: 8px 0;
+    position: relative;
+    animation: textSway 5s ease-in-out infinite;
+    animation-delay: calc(var(--item-delay, 0) * 0.5s);
+}
+
+.about-container ul li:nth-child(1) { --item-delay: 0; }
+.about-container ul li:nth-child(2) { --item-delay: 1; }
+.about-container ul li:nth-child(3) { --item-delay: 2; }
+.about-container ul li:nth-child(4) { --item-delay: 3; }
+.about-container ul li:nth-child(5) { --item-delay: 4; }
+
+@keyframes textSway {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(3px); }
 }
 
 /* Developer Section */
@@ -36,9 +205,11 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
+    position: relative;
+    z-index: 2;
 }
 
-/* Developer Container - Zig-Zag Layout */
+/* Developer Container */
 .developer-container {
     display: flex;
     align-items: center;
@@ -46,49 +217,110 @@
     max-width: 800px;
     justify-content: center;
     text-align: left;
+    gap: 20px;
 }
 
 /* Alternating Layout */
 .developer-container.left {
     flex-direction: row;
+    animation: containerSway 6s ease-in-out infinite;
 }
 
 .developer-container.right {
     flex-direction: row-reverse;
+    animation: containerSway 6s ease-in-out infinite reverse;
+}
+
+@keyframes containerSway {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
 }
 
 /* Developer Card */
 .developer-card {
-    background: rgba(15, 15, 15, 0.9);
-    padding: 10px;
+    background: rgba(20, 20, 20, 0.95);
+    padding: 15px;
     border-radius: 12px;
-    border: 2px solid cyan;
-    box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border: 2px solid #888888;
+    box-shadow: 0 0 15px rgba(100, 100, 100, 0.8);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Developer Images */
+/* Storm effect on cards */
+.developer-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(150, 150, 150, 0) 0%,
+        rgba(150, 150, 150, 0.1) 50%,
+        rgba(150, 150, 150, 0) 100%);
+    animation: stormSweep 5s infinite;
+    pointer-events: none;
+}
+
+@keyframes stormSweep {
+    0%, 100% { left: -100%; }
+    40%, 60% { left: 100%; }
+}
+
+/* Developer Image */
 .developer-img {
     width: 120px;
     height: 120px;
     border-radius: 12px;
     object-fit: cover;
-    transition: transform 0.3s ease-in-out;
+    border: 3px solid #888888;
+    box-shadow: 0 0 12px rgba(100, 100, 100, 1);
+    filter: grayscale(30%) contrast(110%);
 }
 
-/* Subtle Hover Glow */
+/* Hover Effect */
 .developer-img:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    box-shadow: 0 0 20px rgba(150, 150, 150, 1);
+    filter: grayscale(0%) contrast(110%);
 }
 
 /* Developer Info */
 .developer-info {
     padding: 20px;
-    max-width: 400px;
+    background: rgba(20, 20, 20, 0.95);
+    border-radius: 10px;
     text-align: left;
+    box-shadow: 0 0 15px rgba(100, 100, 100, 0.7);
+    color: #dddddd;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Lightning effect for info boxes */
+.developer-info::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(150, 150, 150, 0);
+    animation: infoLightning 7s infinite;
+    pointer-events: none;
+}
+
+@keyframes infoLightning {
+    0%, 95%, 98%, 100% {
+        background: rgba(150, 150, 150, 0);
+        box-shadow: none;
+    }
+    96%, 97%, 99% {
+        background: rgba(150, 150, 150, 0.05);
+        box-shadow: 0 0 15px rgba(150, 150, 150, 0.5);
+    }
 }
 
 /* Responsive Styling */
@@ -100,5 +332,16 @@
 
     .developer-info {
         text-align: center;
+    }
+    
+    /* Reduce animation intensity on mobile */
+    @keyframes textSway {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(1px); }
+    }
+    
+    @keyframes containerSway {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-2px); }
     }
 }

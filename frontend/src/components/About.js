@@ -46,7 +46,7 @@
 //about us with cool image
 import React from "react";
 import "./About.css"; 
-import backgroundImage from "../assets/about.jpg"; 
+import backgroundImage from "../assets/about_1.jpg"; 
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
@@ -54,13 +54,13 @@ import Footer from "./Footer";
 import debnilImg from "../assets/debnil.jpg";
 import aniqaImg from "../assets/aniqa.jpg";
 import arpanImg from "../assets/arpan.jpg";
-// import soumyajitImg from "../assets/soumyajit.jpg";
+import soumyajitImg from "../assets/megh.jpg";
 
 const developers = [
-  { name: "Debnil Sarkar", role: "Lead AI Engineer | Pushing the limits of AI & weather tech 🚀", img: debnilImg },
-  { name: "Aniqa Rahman", role: "Data Scientist | Passionate about AI Ethics & Climate Tech 🌍", img: aniqaImg },
-  { name: "Arpan Saha", role: "Software Architect | Full-Stack Dev & AI Enthusiast 🔥", img: arpanImg },
-  // { name: "Soumyajit Pal", role: "ML Researcher | Big Data & AI Optimization Geek 📊", img: soumyajitImg },
+  { name: "Debnil Sarkar", role: "Msc. Student | Pushing the limits of AI & weather tech 🚀", img: debnilImg },
+  { name: "Aniqa Rahman", role: "Msc. Student | Passionate about AI Ethics & Climate Tech 🌍", img: aniqaImg },
+  { name: "Arpan Saha", role: "Msc. Student |  AI Enthusiast 🔥", img: arpanImg },
+  { name: "Soumyajit Pal", role: "Professor and supervisor | Big Data & AI Optimization 📊", img: soumyajitImg },
 ];
 
 function About() {

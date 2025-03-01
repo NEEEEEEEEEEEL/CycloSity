@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* Retro Pixel Font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap'); /* Futuristic Font */
 
-/* Prediction Page Background */
 .predictions-container {
   display: flex;
   flex-direction: column;
@@ -8,16 +7,19 @@
   min-height: 100vh;
   width: 100%;
   text-align: center;
-  color: white;
+  color: #E0E0E0; /* Softer white for readability */
   position: relative;
+  background: #121212; /* Dark background */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   padding: 20px 0;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Orbitron', sans-serif;
+  padding-top: 80px; /* Pushes content down to clear navbar */
+  overflow: hidden;
 }
 
-/* Dark Overlay for Readability */
+/* Subtle Overlay for Readability */
 .predictions-container::before {
   content: "";
   position: absolute;
@@ -25,18 +27,44 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
-/* Title - Pixelated Glow */
+/* Rain Effect */
+@keyframes rain {
+  0% { background-position: 0 0; }
+  100% { background-position: 10% 100%; }
+}
+.predictions-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/black-paper.png');
+  opacity: 0.2;
+  animation: rain 2s linear infinite;
+  z-index: 1;
+}
+
+/* Title */
 .predictions-page h2 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-bottom: 20px;
-  color: cyan;
-  text-shadow: 3px 3px 0px blue, -3px -3px 0px magenta;
+  color: #00FFFF; /* Cyan */
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.6);
   position: relative;
   z-index: 2;
+  animation: flicker 1.5s infinite alternate;
+}
+
+/* Flicker Animation */
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.8; }
+  100% { opacity: 1; }
 }
 
 /* Predictions Grid */
@@ -50,78 +78,112 @@
   z-index: 2;
 }
 
-/* Prediction Card - Pixel Borders */
+/* Prediction Card */
 .prediction-card {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 15px;
-  border-radius: 0px; /* No rounded edges for pixel effect */
-  border: 4px solid cyan;
-  box-shadow: 5px 5px 0px magenta, -5px -5px 0px blue;
+  background: rgba(26, 26, 26, 0.9); /* Dark gray with slight transparency */
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #00FFFF;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
   text-align: left;
   width: 100%;
-  max-width: 280px;
-  backdrop-filter: blur(5px);
+  max-width: 320px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Header - Pixel Grid */
+/* Hover Effect */
+.prediction-card:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  transform: scale(1.05);
+}
+
+/* Lightning Effect */
+.prediction-card::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.prediction-card:hover::after {
+  opacity: 1;
+  animation: lightning 0.3s linear;
+}
+
+@keyframes lightning {
+  0% { opacity: 0.8; transform: scale(1.1); }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+/* Header */
 .prediction-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 3px dashed cyan;
+  border-bottom: 2px solid #00FFFF;
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
 
-/* Severity Badge - Blocky Look */
+/* Severity Badge */
 .severity-badge {
-  padding: 8px 12px;
-  border-radius: 0px;
+  padding: 6px 14px;
+  border-radius: 6px;
   font-weight: bold;
-  font-size: 0.8rem;
-  border: 2px solid white;
+  font-size: 0.9rem;
   text-transform: uppercase;
+  transition: transform 0.3s;
 }
 
 /* Severity Levels */
 .severity-badge.low {
-  background-color: green;
+  background-color: #28A745; /* Green */
   color: white;
-  box-shadow: 2px 2px 0px white;
 }
-
 .severity-badge.medium {
-  background-color: orange;
+  background-color: #FFC107; /* Yellow */
+  color: black;
+}
+.severity-badge.high {
+  background-color: #DC3545; /* Red */
   color: white;
-  box-shadow: 2px 2px 0px white;
+  animation: pulse 1.5s infinite;
 }
 
-.severity-badge.high {
-  background-color: red;
-  color: white;
-  box-shadow: 2px 2px 0px white;
+/* Pulse Animation for High Severity */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 /* Prediction Details */
 .prediction-details p {
   margin: 5px 0;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 /* Precautions */
 .prediction-precautions {
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .prediction-precautions h4 {
-  font-size: 1rem;
-  margin-bottom: 5px;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
   color: #FFD700; /* Gold */
-  text-shadow: 2px 2px 0px black;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
 }
 
 .prediction-precautions p {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   opacity: 0.9;
 }
 

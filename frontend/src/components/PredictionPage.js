@@ -3,6 +3,7 @@ import axios from 'axios';
 import "./PredictionPage.css"
 import stormGif from "../assets/storm.gif";
 import Footer from './Footer';
+import Navbar from './Navbar';
 
 const PredictionsPage = () => {
   const [predictions, setPredictions] = useState([]);
@@ -24,6 +25,7 @@ const PredictionsPage = () => {
 
   return (
     <>
+    <Navbar />
     <div 
       className="predictions-container" 
       style={{ backgroundImage: `url(${stormGif})`, backgroundSize: "cover" }}

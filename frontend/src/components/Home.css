@@ -20,7 +20,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("../assets/background_3.jpg") no-repeat center center/cover;
+    background: url("../assets/background_live_1.gif") no-repeat center center/cover;
     z-index: -1;
     opacity: 0.85; /* Slight transparency for better readability */
 }
@@ -79,3 +79,127 @@ body, html {
         font-size: 1.1rem;
     }
 }
+
+/* Ensure weather-container stays inside home-container */
+.weather-container {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* background: rgba(0, 0, 0, 0.5); Semi-transparent background */
+    padding: 15px;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); */
+}
+
+/* Weather Card */
+.weather-card {
+    display: flex;
+    align-items: center;
+    /* background: rgba(255, 255, 255, 0.1); */
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
+}
+
+/* Weather Icons */
+.weather-icon {
+    font-size: 2rem;
+    margin-right: 10px;
+    position: sticky;
+}
+
+
+
+/* Responsive */
+@media (max-width: 800px) {
+    .weather-container {
+        flex-direction: row;
+        bottom: 5%;
+        width: 90%;
+    }
+
+    .weather-card {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* Main container - Fully aligned to the left */
+.cyclone-info {
+    max-width: 600px;
+    margin: 20px 0; /* Removes auto centering */
+    padding: 20px;
+    /* background-color: #1c1c1e; Dark gray background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    font-family: Arial, sans-serif;
+    color: #f8f8f8;
+    position: absolute;
+    left: 10px; /* Aligns it to the left edge */
+    top: 242px; /* Adjusts from the top */
+}
+
+/* Title */
+.cyclone-title {
+    color: #00aaff;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #00aaff, 0 0 10px #0077cc;
+}
+
+/* Description paragraph */
+.cyclone-description {
+    font-size: 16px;
+    color: #e0e0e0;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Subtitle */
+.cyclone-subtitle {
+    color: #ffcc00;
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #ffcc00;
+}
+
+/* List styles */
+.cyclone-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Cyclone names */
+.cyclone-name {
+    display: block;
+    font-size: 16px;
+    margin-top: 10px;
+    color: #ff4444;
+    font-weight: bold;
+    text-shadow: 0 0 5px #ff4444;
+}
+
+/* List items */
+.cyclone-list li {
+    font-size: 14px;
+    color: #cccccc;
+    padding-left: 10px;
+    border-left: 3px solid #ff4444;
+    margin: 5px 0;
+    transition: transform 0.2s ease-in-out;
+}
+
+.cyclone-list li:hover {
+    transform: scale(1.05);
+    color: #ffffff;
+}
+
+

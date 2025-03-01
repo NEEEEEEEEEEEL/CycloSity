@@ -368,7 +368,8 @@ import "react-circular-progressbar/dist/styles.css";
 import "../style.css";
 import PublishForm from './PublishForm';
 import Navbar from "./Navbar";
-import uploadBg from "../assets/megh.jpg"
+import Footer from "./Footer"
+import uploadBg from "../assets/form.gif"
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const UploadImages = () => {
@@ -471,7 +472,7 @@ const UploadImages = () => {
           styles={buildStyles({
             textSize: "15px",
             pathColor: "#3498db",
-            textColor: "black",
+            textColor: "white",
             trailColor: "#e0e0e0",
           })}
         />
@@ -484,7 +485,7 @@ const UploadImages = () => {
           styles={buildStyles({
             textSize: "15px",
             pathColor: "#e74c3c",
-            textColor: "black",
+            textColor: "white",
             trailColor: "#e0e0e0",
           })}
         />
@@ -516,6 +517,7 @@ const UploadImages = () => {
       )}
     </div>
     </div> 
+    <Footer />
     </>
   );
 };

@@ -115,7 +115,7 @@
   max-width: 800px; /* Limit width */
   margin: 20px 0;
   padding: 15px;
-  /* background: rgba(255, 255, 255, 0.1); Very subtle white background */
+  /* background: rgba(255, 255, 255, 0.1);  */
   /* backdrop-filter: blur(4px); Slight blur effect */
   backdrop-filter: none;
   border-radius: 15px;
@@ -123,23 +123,23 @@
 }
 
 .prediction-result h3 {
-  color: black;
+  color: white;
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 15px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
 }
 
 .prediction-result p {
-  color: black;
+  color: white;
   font-size: 18px;
   margin: 10px 0;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); */
 }
 
 .prediction-result b {
-  color: #46dbb6; /* Accent color for labels */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  color: white; /* Accent color for labels */
+  /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); */
 }
 
 .meter-container {
@@ -160,7 +160,7 @@
   font-size: 16px;
   font-weight: bold;
   margin-top: 8px;
-  color: #333;
+  color: white;
 }
 
 /* Grad-CAM styling */
@@ -228,6 +228,7 @@ input[type="file"] {
 
 h2, h3, h4 {
   margin-bottom: 15px;
+  color: white;
 }
 
 /* new */
